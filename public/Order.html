@@ -1,10 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<!-- Student responsible for creating and editing this file: Isadora Santos 200449748 -->
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Pizza</title>
 </head>
 <body>
+<title>New Order</title>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="stylesheet.css">
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Cormorant:wght@300&family=Merienda+One&family=Playfair+Display+SC&family=Sarabun:wght@100&display=swap" rel="stylesheet">
+
+<div class="header">
+
+  <!--  <img src="pizzaicon.png" alt="pizzaicon" style="width:70px" style="height:50px"> -->
+    <h1>Your Order</h1>
+
+</div>
+
+<div class="topnav">
+    <a href="index.html">Home Page</a>
+</div>
+
+<div class="tabContainer">
+    <div class="buttonContainer">
+        <button>Our Pizzas</button>
+        <button>Build Your Own</button>
+    </div>
+    <div class="tabPanel">Tab1: Content</div>
+    <div class="tabPanel">Tab2: Content</div>
+
+</div>
+
+<h2>Create your own custom pizza!</h2>
+<h3>Choose anything you want from our variety of best quality ingredients and enjoy!</h3>
+<p>
+    <!--Here starts the Form to the order -->
+<form action="/build-the-pizza">
+
+    <fieldset>
+        <legend>Build your Pizza</legend>
+
+        <!-- quantity -->
+        <label for="quantity">How many pizzas would you like to order?</label><br>
+        <input type="number" id="quantity" name="quantity" min="1" max="3">
+
+        <!--size-->
+        <label for="size">Choose the size:</label>
+        <label for="small"><input id="small" type="radio" name="S-M-L-XL"> Small - 6 slices </label>
+        <label for="medium"><input id="medium" type="radio" name="S-M-L-XL"> Medium - 8 slices</label>
+        <label for="large"><input id="large" type="radio" name="S-M-L-XL"> Large - 10 slices</label>
+        <label for="xl"><input id="xl" type="radio" name="S-M-L-XL"> Extra Large - 12 slices</label> <br>
+        <br>
+
+        <!--dough-->
+        <label for="dough">Choose dough:</label><br>
+        <select name="dough" id="dough">
+            <option value="select">-Select-</option>
+            <option value="traditional">Traditional</option>
+            <option value="wholewheat">Whole wheat</option>
+            <option value="glutenfree">Gluten-free</option>
+            <option value="deepdish">Deep-dish</option>
+        </select> <br>
+        <br>
+
+        <!--crust-->
+        <label for="color">Choose the crust:</label><br>
+        <select name="color" id="color">
+            <option value="select">-Select-</option>
+            <option value ="traditional">Traditional</option>
+            <option value="cheesefilled"> Cheese filled crust</option>
+            <option value="chocolatefilled">Chocolate filled crust</option>
+        </select><br>
+        <br>
+
+        <!--toppings-->
+        <label for="toppings">Choose your toppings:</label><br>
+
+
+        <label for="cheeses">Cheeses</label><br>
+        <input type="checkbox" id="cheddar" name="cheddar" value="Cheddar">
+        <label for="cheddar"> Cheddar Cheese</label><br>
+        <input type="checkbox" id="feta" name="feta" value="Feta">
+        <label for="feta"> Feta Cheese</label><br>
+        <input type="checkbox" id="goat" name="goat" value="Goat">
+        <label for="goat"> Goat Cheese</label><br>
+        <input type="checkbox" id="vegan" name="vegan" value="Vegan">
+        <label for="vegan"> Vegan Cheese</label><br>
+
+
+
+
+
+        <label for="tradtoppings">Traditional Toppings</label><br>
+        <input type="checkbox" id="tomatoes" name="tomatoes" value="Tomatoes">
+        <label for="tomatoes"> Tomatoes</label><br>
+        <input type="checkbox" id="olives" name="olives" value="Olives">
+        <label for="olives"> Olives</label><br>
+        <input type="checkbox" id="mushrooms" name="mushrooms" value="Mushrooms">
+        <label for="mushrooms"> Mushrooms</label><br>
+        <input type="checkbox" id="broccoli" name="broccoli" value="Broccoli">
+        <label for="broccoli"> Broccoli</label><br>
+        <input type="checkbox" id="onions" name="onions" value="Onions">
+        <label for="onions"> Onions</label><br>
+        <input type="checkbox" id="pineapple" name="pineapple" value="Pineapple">
+        <label for="pineapple"> Pineapple</label><br>
+        <br>
+        <br>
+
+        <!--observations of order-->
+        <label for="observations">Observations/Instructions for your order:</label><br>
+        <textarea style="font-family:Sarabun;">example: well-done</textarea>
+    </fieldset>
+
+    <!-- Order summary -->
+    <fieldset>
+        <legend>Your Order Summary</legend>
+    </fieldset>
+
+    <!--Submit Button-->
+    <input type="submit" value="Submit my order">
+
+</form>
+
+<div class="footer">
+    <p>&copy Copyright 2021</p>
+</div>
+<script type = "text/javascript" >
+</script>
 
 </body>
 </html>
