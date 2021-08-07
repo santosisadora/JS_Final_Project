@@ -1,10 +1,377 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<!-- Student responsible for creating and editing this file: Isadora Santos 200449748 -->
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>New Order</title>
 </head>
-<body>
+<!-- Internal CSS -->
+<style>
+    /*Tab Container*/
+    .tabContainer{
+        width: 100%;
+        height:350px;
+    }
+    .tabContainer .buttonContainer{
+        height:15%;
+    }
+    .tabContainer .buttonContainer button{
+        width:20%;
+        height:100%;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px;
+        font-family: Sarabun;
+        font-size:18px;
+        background-color: black;
+        overflow:hidden;
+        color:white;
+    }
 
+    .tabContainer .buttonContainer button:hover{
+        background-color:#d7d4d4;
+        font-color:white;
+    }
+    .tabContainer .tabPanel {
+        height:100%;
+        color:white;
+        text-align: left;
+        padding-top: 105px;
+        box-sizing: border-box;
+        display: none;
+        font-family:Sarabun;
+        font-weight: bold;
+        font-size:100%;
+    }
+
+    .tabContainer .tabPanel .test
+    {
+        height:auto;
+        text-align:left;
+    }
+    /* Style the top navigation bar */
+    .topnav
+    {
+        overflow: hidden;
+        /*topnav background color*/
+        background-color: black;
+    }
+    /* Style the topnav links */
+    .topnav a
+    {
+        float: left;
+        display: block;
+        /*topnav text color*/
+        color: white ;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    /* Change color on hover */
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .toppings
+    {
+        text-align: left;
+    }
+    body{
+        font-family:Sarabun;
+        font-size:100%;
+        font-weight: bold;
+        line-height:1.4;
+        color:white;
+        background-image: url(img/bg4.jpg);
+    }
+    /* Style the header */
+    .header {
+        background-color: #FFB720;
+        padding: 20px;
+        text-align: center;
+    }
+    /* Middle column */
+    .column.middle {
+        width: 50%;
+        text-align:center;
+    }
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .column.side, .column.middle {
+            width: 100%;
+        }
+    }
+
+    /* Style the footer */
+    .footer {
+        background-color: #FFB720;
+        padding: 10px;
+        text-align: center;
+    }
+
+    header{
+        font-family:Sarabun;
+        background-color: Black;
+        padding: 20px;
+    }
+    /**main title**/
+    h1{
+        text-align:center;
+        color:Black;
+    }
+    /* menu button**/
+    h2{
+        text-align:left;
+    }
+    h3 {
+        text-align: left;
+    }
+</style><!--End of internal CSS-->
+
+
+<body>
+<meta charset="UTF-8">
+
+<!--<link rel="stylesheet" href="stylesheet.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Cormorant:wght@300&family=Merienda+One&family=Playfair+Display+SC&family=Sarabun:wght@100&display=swap" rel="stylesheet">
+<div class="header">
+    <h1>Your Order</h1>
+</div>
+
+<div class="topnav">
+    <a href="index.html">Home Page</a>
+</div>
+
+<div class="tabContainer">
+    <!-- Button Containers -->
+    <div class="buttonContainer">
+        <button onclick = "showPanel(0)">Our Pizzas</button>
+        <button onclick = "showPanel(1)">Build Your Own</button>
+    </div>
+
+    <!--Our pizzas Tab Content-->
+    <div class="tabPanel">
+        <section class="container content-section">
+            <fieldset>
+            <div class="shop-item">
+                    <span class="Marguerita">Marguerita</span><br>
+                    <img class="marguerita-image" src="img/pizza3.png" onmouseover="BigImage(this)" onmouseout="SmallImage(this)">
+                      <div class="shop-item-details">
+                        <span class="marguerita-price">$12.99</span><br>
+                      </div>
+                        <button id="ourPizzas" type="button" name="Marguerita" onclick="toOrderSummary()">Order</button><br>
+                <br>
+                <div class="shop-item">
+                    <span class="shop-item-title">Hawaian</span><br>
+                    <img class="shop-item-image" src="img/pizza2.png" onmouseover="BigImage(this)" onmouseout="SmallImage(this)">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$14.99</span><br>
+                        <button id="ourPizzas" type="button" name="Hawaian" onclick="toOrderSummary()">Order</button><br>
+                    </div>
+                    <br>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Veggie</span><br>
+                    <img class="shop-item-image" src="img/pizza1.jpg" onmouseover="BigImage(this)" onmouseout="SmallImage(this)">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$9.99</span><br>
+                        <button id="ourPizzas"  type="button" name="Veggie" onclick="toOrderSummary()">Order</button><br>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+            <!-- Order summary -->
+            <fieldset>
+                <legend >Your Order Summary</legend>
+                <p id="summaryTextOP" name="summaryText" rows="5" cols="33">
+
+                </p>
+                <!--Submit Button-->
+                <input type="submit" value="Place my order">
+            </fieldset>
+        </section>
+    </div>
+
+
+
+
+
+    <!--Build your Own Pizza Tab Content-->
+    <div class="tabPanel">
+        <h2>Create your own custom pizza!</h2>
+        <h3>Choose anything you want from our variety of best quality ingredients and enjoy!</h3>
+
+        <fieldset>
+            <legend>Build your Pizza</legend>
+        <form class="test">
+
+            <!-- quantity -->
+            <label for="quantity">How many pizzas would you like to order?</label><br>
+            <input type="number" id="quantity" name="quantity" min="1" max="3"><br>
+            <br>
+
+            <!--size-->
+            <label>Choose the size:</label><br>
+            <select id="Size">
+            <option value="Small"> Small - 6 slices </option>
+            <option value="Medium"> Medium - 8 slices</option>
+            <option value="Large"> Large - 10 slices</option>
+            <option value="Extra Large"> Extra Large - 12 slices</option> <br>
+            </select>
+            <br>
+            <br>
+
+            <!--dough-->
+            <label>Choose dough:</label><br>
+            <select id="Dough">
+                <option value="select">-Select-</option>
+                <option value="Traditional Dough">Traditional</option>
+                <option value="Whole Wheat Dough">Whole wheat</option>
+                <option value="Gluten-free Dough">Gluten-free</option>
+                <option value="Deepdish">Deep-dish</option>
+            </select> <br>
+            <br>
+
+            <!--crust-->
+            <label>Choose the crust:</label><br>
+            <select id="Crust">
+                <option value="select">-Select-</option>
+                <option value ="Traditional Crust">Traditional</option>
+                <option value="Cheese Filled Crust"> Cheese filled crust</option>
+                <option value="Chocolate Filled Crust">Chocolate filled crust</option>
+            </select><br>
+            <br>
+
+            <!--toppings-->
+            <label for="toppings">Choose your toppings:</label><br>
+            <br>
+
+
+            <div class="cheeseTypes">
+            <label for="cheeses">Cheeses</label><br>
+            <input type="checkbox" id="Cheese" name="cheddar" value="Cheddar Cheese">
+            <label> Cheddar Cheese</label><br>
+            <input type="checkbox" id="Cheese" name="feta" value="Feta Cheese">
+            <label for="feta"> Feta Cheese</label><br>
+            <input type="checkbox" id="Cheese" name="goat" value="Goat Cheese">
+            <label for="goat"> Goat Cheese</label><br>
+            <input type="checkbox" id="Cheese" name="vegan" value="Vegan Cheese">
+            <label for="vegan"> Vegan Cheese</label><br>
+            </div>
+            <br>
+
+            <div class="toppings">
+            <label for="tradtoppings">Traditional Toppings</label><br>
+            <input type="checkbox" id="Toppings" name="tomatoes" value="Tomatoes">
+            <label for="tomatoes"> Tomatoes</label><br>
+            <input type="checkbox" id="Toppings" name="olives" value="Olives">
+            <label for="olives"> Olives</label><br>
+            <input type="checkbox" id="Toppings" name="mushrooms" value="Mushrooms">
+            <label for="mushrooms"> Mushrooms</label><br>
+            <input type="checkbox" id="Toppings" name="broccoli" value="Broccoli">
+            <label for="broccoli"> Broccoli</label><br>
+            <input type="checkbox" id="Toppings" name="onions" value="Onions">
+            <label for="onions"> Onions</label><br>
+            <input type="checkbox" id="Toppings" name="pineapple" value="Pineapple">
+            <label for="pineapple"> Pineapple</label><br>
+            </div>
+            <br>
+            <br>
+
+            <!--observations of order-->
+            <label for="observations">Observations/Instructions for your order:</label><br>
+            <textarea id="observations" rows="4" cols="50"></textarea><br>
+            <br>
+
+            <button name="addToCart" type="button" onclick="toOrderSummary()">Add to Cart</button><br>
+            <br>
+            <!-- Order summary -->
+            <fieldset>
+                <legend>Your Order Summary</legend>
+                <p id="summaryTextBYO" name="summaryText" rows="5" cols="33">
+
+                </p>
+                <!--Submit Button-->
+                <input type="submit" value="Place my order">
+            </fieldset>
+        </form>
+
+
+        </fieldset>
+
+    </div>
+
+</div>
+
+
+
+
+
+<script type = "text/javascript" >
+
+    //This is the creation of vars and function for the Tabs and Tab Contents, so we can browse through "Our Pizzas" and "Build Your Own"
+    var tabButtons =document.querySelectorAll(".tabContainer .buttonContainer button")
+    var tabPanels =document.querySelectorAll(".tabContainer .tabPanel ")
+    function showPanel(panelIndex, colorCode)
+    {
+        tabButtons.forEach(function(node){
+            node.style.backgroundColor="";
+            node.style.color="";
+        });
+        tabButtons[panelIndex].style.backgroundColor=colorCode;
+        tabButtons[panelIndex].style.color="white";
+        tabPanels.forEach(function(node){
+            node.style.display = "none";
+        });
+        tabPanels[panelIndex].style.display="block";
+        tabPanels[panelIndex].style.backgroundColor=colorCode;
+    }
+
+    // OnMouseOver Events for seeing a bigger and resized-to-normal pizza's image
+    function BigImage(x)
+    {
+        x.style.width="500px";
+        x.style.height="400px";
+    }
+    function SmallImage(x)
+    {
+        x.style.width="200px";
+        x.style.height="150px";
+    }
+
+    //OnClick events functions for the buttons, so the items can be displayed in the "Order Summary"
+    function toOrderSummary()
+    {
+        //Adding chosen items to the Order Summary for Build Your Own Pizza
+        var summary = document.getElementById("summaryTextBYO");
+        summary.innerHTML = document.getElementById("quantity").value + "<br>" +
+            document.getElementById("Size").value + "<br>" +
+            document.getElementById("Dough").value + "<br>" +
+            document.getElementById("Crust").value + "<br>";
+
+        //whenever a new checkbox item is chosen, it will be appended to the summary
+        for (var checkboxCheese of Cheese) {
+            if (checkboxCheese.checked) {
+                summary.innerHTML += checkboxCheese.value + ",";
+            }
+        }
+        for (var checkboxToppings of Toppings) {
+            if (checkboxToppings.checked) {
+                summary.innerHTML += checkboxToppings.value + ",";
+            }
+        }
+        summary.innerHTML += "<br>" + document.getElementById("observations").value;
+        }
+</script>
 </body>
 </html>
